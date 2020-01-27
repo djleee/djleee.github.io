@@ -1,54 +1,52 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const rect = canvas.getBoundingClientRect();
+let rect = canvas.getBoundingClientRect();
 
-// canvas.addEventListener('click', (e) => {
-//     console.log('canvas.click' + e.clientX + ', ' + e.clientY);
+//Setup canvas resizing
+function initCanvas() {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    rect = canvas.getBoundingClientRect();
+}
+initCanvas();
+window.addEventListener("resize", initCanvas);
 
-//     ctx.beginPath();
-//     ctx.fillStyle = 'rgb(255,0,0)';
-//     ctx.arc(
-//         (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-//         (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height,
-//         1,
-//         0,
-//         2 * Math.PI,
-//         false
-//     );
-//     ctx.fill();
-// });
-
-function drawCircle(e, radius) {
+//Setup waterdrop animation
+let drawInterval;
+function drawRipple(rip) {
+    console.log("RUNNING :)");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
-    ctx.fillStyle = 'rgb(255,0,0)';
-    ctx.strokeStyle= 'rgb(255,255,255)'
+    ctx.strokeStyle= rip.color;
     ctx.arc(
-        (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-        (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height,
-        radius,
+        (rip.x - rect.left) / (rect.right - rect.left) * canvas.width,
+        (rip.y - rect.top) / (rect.bottom - rect.top) * canvas.height,
+        rip.r,
         0,
         2 * Math.PI
     );
     ctx.stroke();
+
+    rip.r += rip.delta;
+    if(rip.r > 1500) {
+        clearInterval(drawInterval);
+    }
 }
 
-
-let i = 1;
-function loop(e) {
-    setTimeout(() => {
-        i++;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawCircle(e, i);
-        if (i < 1000) {
-            loop(e);
-        }
-    }, 10);
+let ripple = {
+    color: 'rgb(255,255,255)',
+    x: 0,
+    y: 0,
+    r: 0,
+    delta: 0
 }
 
 canvas.addEventListener('click', (e) => {
-    console.log('canvas.click' + e.clientX + ', ' + e.clientY);
-    i = 1;
-    loop(e);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-});
+    ripple.x = e.clientX;
+    ripple.y = e.clientY;
+    ripple.r = 1;
+    ripple.delta = 1;
 
+    clearInterval(drawInterval);
+    drawInterval = setInterval(() => drawRipple(ripple), 1);
+});
