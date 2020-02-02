@@ -4,17 +4,32 @@ body {
     margin: 0;
 }
 
-.home {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-}
+.canvas {
+    position: fixed;
 
-.home-canvas {
     height: 100%;
     width: 100%;
+
+    z-index: 2;
 }
 
+/* Home section */
+.home {
+    height: 100vh;
+}
+
+.name-plate {
+    height: 100%;
+    text-align: center;
+}
+
+.name-separator {
+    border: 2px solid maroon;
+    margin-bottom: 0;
+}
+
+
+/* Footer */
 .footer {
     background: gray;
 }

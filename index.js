@@ -1,8 +1,9 @@
+// Canvas Variables
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let rect = canvas.getBoundingClientRect();
 
-//Setup canvas resizing
+// Setup canvas resizing
 function initCanvas() {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
@@ -11,7 +12,7 @@ function initCanvas() {
 initCanvas();
 window.addEventListener("resize", initCanvas);
 
-//Setup waterdrop animation
+// Setup waterdrop animation
 let drawInterval;
 function drawRipple(rip) {
     console.log("RUNNING :)");
@@ -28,7 +29,7 @@ function drawRipple(rip) {
     ctx.stroke();
 
     rip.r += rip.delta;
-    if(rip.r > 1500) {
+    if(rip.r > 2500) {
         clearInterval(drawInterval);
     }
 }
