@@ -9,8 +9,7 @@ body {
 
     height: 100%;
     width: 100%;
-
-    z-index: 2;
+    z-index: 0;
 }
 
 /* Home section */
@@ -31,5 +30,33 @@ body {
 
 /* Footer */
 .footer {
+    height: 100px;
+
     background: gray;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-link {
+    flex-grow: 1;
+    text-align: center;
+    vertical-align: middle;
+
+    padding-top: 25px;
+}
+
+.footer-email:hover {
+    background: goldenrod;
+}
+.footer-github:hover {
+    background: #4078c0;
+}
+.footer-linkedin:hover {
+    background: #0077b5;
+}
+.footer-lastfm:hover {
+    background: #d51007;
+}
+.footer-thingiverse:hover {
+    background: #248bfb;
 }
