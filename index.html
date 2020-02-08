@@ -5,27 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>David Lee</title>
     <link rel="stylesheet" type="text/css" href="./index.css">
 </head>
 
 <body>
     <canvas id="canvas" class="canvas"></canvas>
 
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Work">Work</a></li>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="#Contact">Contact</a></li>
+            <!-- Disabled by default -->
+            <li class="right"><i id="rain-toggle" class="fas fa-tint-slash"></i></li>
+        </ul>
+    </nav>
+
+
     <!-- Home Section -->
     <div class="container">
         <div class="row">
-            <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-3 home">
-                <div class="d-flex justify-content-center align-items-center name-plate">
-                    <div class="">
-                        <h1>David Lee</h1>
-                        <hr class="name-separator">
-                        <h2>Computer Engineer</h2>
-                    </div>
+            <div class="home">
+                <!-- <div class="d-flex justify-content-center align-items-center name"> -->
+                <div class="name-plate">
+                    <h1>David Lee</h1>
+                    <hr class="name-separator">
+                    <h2>Computer Engineer</h2>
                 </div>
+                <!-- </div> -->
             </div>
         </div>
 
@@ -36,48 +47,37 @@
 
 
         <!-- Footer -->
-        <div class="col-sm-12">
-            <div class="row footer">
-                <div class="footer-link footer-email">
-                    <a>
-                        <i class="far fa-3x fa-envelope"></i>
-                    </a>
-                </div>
-                <div class="footer-link footer-github">
-                    <a>
-                        <i class="fab fa-3x fa-github"></i>
-                    </a>
-                </div>
-                <div class="footer-link footer-linkedin">
-                    <a>
-                        <i class="fab fa-3x fa-linkedin"></i>
-                    </a>
-                </div>
-                <div class="footer-link footer-lastfm">
-                    <a>
-                        <i class="fab fa-3x fa-lastfm"></i>
-                    </a>
-                </div>
-                <div class="footer-link footer-thingiverse">
-                    <a>
-                        <i class="fas fa-3x fa-cube"></i>
-                    </a>
-                </div>
+        <div class="footer">
+            <div class="footer-link footer-email">
+                <a>
+                    <i class="far fa-3x fa-envelope"></i>
+                </a>
+            </div>
+            <div class="footer-link footer-github">
+                <a>
+                    <i class="fab fa-3x fa-github"></i>
+                </a>
+            </div>
+            <div class="footer-link footer-linkedin">
+                <a>
+                    <i class="fab fa-3x fa-linkedin"></i>
+                </a>
+            </div>
+            <div class="footer-link footer-lastfm">
+                <a>
+                    <i class="fab fa-3x fa-lastfm"></i>
+                </a>
+            </div>
+            <div class="footer-link footer-thingiverse">
+                <a>
+                    <i class="fas fa-3x fa-cube"></i>
+                </a>
             </div>
         </div>
     </div>
 
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b6d357028f.js" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
 </body>
