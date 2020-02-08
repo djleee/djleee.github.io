@@ -7,7 +7,8 @@ const RAIN_DISABLED_CLASS = "fas fa-tint-slash";
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let rect = canvas.getBoundingClientRect();
-const rainToggle = document.getElementById("rain-toggle")
+const rainToggle = document.getElementById("rain-toggle");
+const rainToggleIcon = document.getElementById("rain-toggle-icon");
 
 // State Variables
 let isRaining = false;
@@ -88,10 +89,10 @@ rainToggle.addEventListener('click', () => {
         ripples.length = 0;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         clearInterval(drawInterval);
-        rainToggle.className = RAIN_DISABLED_CLASS;
+        rainToggleIcon.className = RAIN_DISABLED_CLASS;
     } else {
         ripples.push(createRandomRipple());
-        rainToggle.className = RAIN_ENABLED_CLASS;
+        rainToggleIcon.className = RAIN_ENABLED_CLASS;
         clearInterval(drawInterval);
         drawInterval = setInterval(() => drawRipples(ripples), 5);
     }
