@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: black;
+    background: rgb(26, 22, 22);
     color: white;
     margin: 0;
 }
@@ -63,6 +63,8 @@ body {
 
     display: flex;
     align-items: center;
+
+    background: #000000;
 }
 
 .name-plate {
