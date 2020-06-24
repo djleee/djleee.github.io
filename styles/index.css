@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: rgb(26, 22, 22);
+    background: rgb(12, 12, 12);
     color: white;
     margin: 0;
 }
@@ -16,11 +16,17 @@ body {
     z-index: 0;
 }
 
+h2 {
+    text-align: center;
+    position: relative;
+}
+
 /* Navbar */
 
 .navbar {
     position: fixed;
     width: 100%;
+    z-index: 1;
 
     background-color: rgb(26, 22, 22);
     overflow: hidden;
@@ -90,26 +96,53 @@ body {
     width: 80%;
 }
 
-.about-interests {
+/* Work Section */
+.work {
+    /* TODO: Remove height */
+    height: 50vh;
+}
+
+.workplace-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.workplace-card {
+    position: relative;
+    width: 320px;
     text-align: center;
 }
 
-.about-gallery {
+.workplace-img {
+    width: 240px;
+}
+
+/* Projects Section */
+.projects {
+    /* TODO: Remove height */
+    height: 50vh;
+    text-align: center;
+}
+
+.projects-gallery {
     display: flex;
     position: relative;
 }
 
-.about-gallery-entry {
+.projects-gallery-entry {
     display: relative;
     flex-grow: 1;
     transition: 1s;
 
     /* TODO: Remove */
-    height: 120px;
+    height: 240px;
     border: red solid 2px;
 }
 
-.about-gallery-entry:hover {
+.projects-gallery-entry:hover {
     flex-grow: 2;
 }
 
@@ -129,6 +162,7 @@ body {
     vertical-align: middle;
 
     padding-top: 20px;
+    color: white;
 }
 
 .footer-email:hover {
