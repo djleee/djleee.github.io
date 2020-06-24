@@ -81,8 +81,6 @@ function drawRipples(rips) {
 let ripples = []
 canvas.addEventListener('click', (e) => {
     ripples.unshift(initRipple(e.clientX, e.clientY));
-    clearInterval(drawInterval);
-    drawInterval = setInterval(() => drawRipples(ripples), 25);
 });
 rainToggle.addEventListener('click', () => {
     if (isRaining) {
@@ -93,8 +91,12 @@ rainToggle.addEventListener('click', () => {
     } else {
         ripples.push(createRandomRipple());
         rainToggleIcon.className = RAIN_ENABLED_CLASS;
-        clearInterval(drawInterval);
-        drawInterval = setInterval(() => drawRipples(ripples), 25);
     }
     isRaining = !isRaining;
 })
+
+function animate() {
+    drawRipples(ripples);
+    requestAnimationFrame(animate);
+}
+animate();
