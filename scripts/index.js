@@ -48,7 +48,6 @@ window.addEventListener("resize", initCanvas);
 // Setup waterdrop animation
 let drawInterval;
 function drawRipples(rips) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (var i = rips.length - 1; i >= 0; i--) {
         ctx.beginPath();
         // Transitions the color from 255 to 0
@@ -71,7 +70,7 @@ function drawRipples(rips) {
                 if (isRaining) {
                     rips.push(createRandomRipple());
                 } else {
-                    clearInterval(drawInterval);
+                    // clearInterval(drawInterval);
                 }
             }
         }
@@ -85,8 +84,8 @@ canvas.addEventListener('click', (e) => {
 rainToggle.addEventListener('click', () => {
     if (isRaining) {
         ripples.length = 0;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        clearInterval(drawInterval);
+        // ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // clearInterval(drawInterval);
         rainToggleIcon.className = RAIN_DISABLED_CLASS;
     } else {
         ripples.push(createRandomRipple());
@@ -95,8 +94,43 @@ rainToggle.addEventListener('click', () => {
     isRaining = !isRaining;
 })
 
-function animate() {
-    drawRipples(ripples);
-    requestAnimationFrame(animate);
+// FISH?
+function drawFish(X, Y, quarterLength, halfWidth, rotation) {
+    let cosRotation = Math.cos(rotation);
+    let sinRotation = Math.sin(rotation);
+
+    let origin          = { x:X              , y: Y                   };
+    let lCurveUpper     = { x:X - halfWidth  , y: Y                   };
+    let rCurveUpper     = { x:X + halfWidth  , y: Y                   };
+    let lCurveLower     = { x:X - halfWidth  , y: Y + 2*quarterLength };
+    let rCurveLower     = { x:X + halfWidth  , y: Y + 2*quarterLength };
+    let tailConnection  = { x:X              , y: Y + 3*quarterLength };
+    let lTail           = { x:X - halfWidth  , y: Y + 4*quarterLength };
+    let rTail           = { x:X + halfWidth  , y: Y + 4*quarterLength };
+
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.moveTo(tailConnection.x, tailConnection.y);
+    ctx.lineTo(lTail.x, lTail.y);
+    ctx.lineTo(rTail.x, rTail.y);
+    ctx.lineTo(tailConnection.x,tailConnection.y);
+
+    ctx.bezierCurveTo(lCurveLower.x, lCurveLower.y, lCurveUpper.x, lCurveUpper.y, origin.x, origin.y);
+    ctx.bezierCurveTo(rCurveUpper.x, rCurveUpper.y,rCurveLower.x, rCurveLower.y, tailConnection.x, tailConnection.y);
+    ctx.fill();
 }
-animate();
+
+function drawFishes() {
+    let x = 100;
+    let y = 100;
+    drawFish(x, y, 50, 40, 0);
+}
+
+function animateLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawRipples(ripples);
+    drawFishes();
+
+    requestAnimationFrame(animateLoop);
+}
+animateLoop();
