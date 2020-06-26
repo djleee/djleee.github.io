@@ -99,16 +99,42 @@ function drawFish(X, Y, quarterLength, halfWidth, rotation) {
     let cosRotation = Math.cos(rotation);
     let sinRotation = Math.sin(rotation);
 
-    let origin          = { x:X              , y: Y                   };
-    let lCurveUpper     = { x:X - halfWidth  , y: Y                   };
-    let rCurveUpper     = { x:X + halfWidth  , y: Y                   };
-    let lCurveLower     = { x:X - halfWidth  , y: Y + 2*quarterLength };
-    let rCurveLower     = { x:X + halfWidth  , y: Y + 2*quarterLength };
-    let tailConnection  = { x:X              , y: Y + 3*quarterLength };
-    let lTail           = { x:X - halfWidth  , y: Y + 4*quarterLength };
-    let rTail           = { x:X + halfWidth  , y: Y + 4*quarterLength };
+    let origin          = { x: Math.floor(X                                                          ) , y: Math.floor(Y                                                         ) };
+    let lCurveUpper     = { x: Math.floor(X - (halfWidth*cosRotation)                                ) , y: Math.floor(Y + (halfWidth*sinRotation)                               ) };
+    let rCurveUpper     = { x: Math.floor(X + (halfWidth*cosRotation)                                ) , y: Math.floor(Y - (halfWidth*sinRotation)                               ) };
+    let lCurveLower     = { x: Math.floor(X - (halfWidth*cosRotation) + (2*quarterLength*sinRotation)) , y: Math.floor(Y + (2*quarterLength*cosRotation + halfWidth*cosRotation) ) };
+    let rCurveLower     = { x: Math.floor(X + (halfWidth*cosRotation) + (2*quarterLength*sinRotation)) , y: Math.floor(Y + (2*quarterLength*cosRotation - halfWidth*cosRotation) ) };
+    let tailConnection  = { x: Math.floor(X + (3*quarterLength*sinRotation)                          ) , y: Math.floor(Y + (3*quarterLength*cosRotation)                         ) };
+    let lTail           = { x: Math.floor(X - (halfWidth*cosRotation) + (4*quarterLength*sinRotation)) , y: Math.floor(Y + (4*quarterLength*cosRotation + halfWidth*sinRotation) ) };
+    let rTail           = { x: Math.floor(X + (halfWidth*cosRotation) + (4*quarterLength*sinRotation)) , y: Math.floor(Y + (4*quarterLength*cosRotation - halfWidth*sinRotation) ) };
+
+    // Debugging Math :(
+    // ctx.beginPath();
+    // ctx.moveTo(lCurveLower.x, lCurveLower.y);
+    // ctx.strokeStyle  = 'red';
+    // ctx.lineTo(lTail.x, lTail.y);
+    // ctx.stroke();
+
+    // ctx.beginPath();
+    // ctx.strokeStyle  = 'green';
+    // ctx.moveTo(lTail.x, lTail.y);
+    // ctx.lineTo(rTail.x, rTail.y);
+    // ctx.stroke();
+
+    // ctx.beginPath();
+    // ctx.strokeStyle  = 'white';
+    // ctx.moveTo(rTail.x, rTail.y);
+    // ctx.lineTo(rCurveLower.x,rCurveLower.y);
+    // ctx.stroke();
+
+    // ctx.beginPath();
+    // ctx.strokeStyle  = 'blue';
+    // ctx.moveTo(rCurveLower.x,rCurveLower.y);
+    // ctx.lineTo(lCurveLower.x, lCurveLower.y);
+    // ctx.stroke();
 
     ctx.fillStyle = 'red';
+    ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.moveTo(tailConnection.x, tailConnection.y);
     ctx.lineTo(lTail.x, lTail.y);
@@ -124,6 +150,7 @@ function drawFishes() {
     let x = 100;
     let y = 100;
     drawFish(x, y, 50, 40, 0);
+    drawFish(x + 200, y, 50, 40, 0.785398);
 }
 
 function animateLoop() {
