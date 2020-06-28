@@ -13,6 +13,10 @@ const rainToggleIcon = document.getElementById("rain-toggle-icon");
 // State Variables
 let isRaining = false;
 
+// Cursor Click Location for fish following
+let clickX = -1;
+let clickY = -1;
+
 //Helper Functions
 // Reset Canvas size to window
 function initCanvas() {
@@ -80,6 +84,8 @@ function drawRipples(rips) {
 let ripples = []
 canvas.addEventListener('click', (e) => {
     ripples.unshift(initRipple(e.clientX, e.clientY));
+    clickX = e.clientX;
+    clickY = e.clientY;
 });
 rainToggle.addEventListener('click', () => {
     if (isRaining) {
@@ -109,7 +115,6 @@ function drawFish(X, Y, quarterLength, halfWidth, rotation) {
     let rTail           = { x: Math.floor(X - (halfWidth*sinRotation) - (4*quarterLength*cosRotation) ) , y: Math.floor(Y + (4*quarterLength*sinRotation) - (halfWidth*cosRotation) ) };
 
     ctx.fillStyle = 'red';
-    ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.moveTo(tailConnection.x, tailConnection.y);
     ctx.lineTo(lTail.x, lTail.y);
@@ -122,14 +127,34 @@ function drawFish(X, Y, quarterLength, halfWidth, rotation) {
 
 }
 
+let x = 300;
+let y = 500;
+let fishRotation = 0;
 function drawFishes() {
-    let x = 300;
-    let y = 500;
-    drawFish(x, y, 50, 40, 0);
+    let speed = 5;
+
+    let diffX = clickX - x;
+    let diffY = y - clickY;
+
+    if (clickX > 0 && clickY > 0) {
+        if (Math.abs(diffX) < 3 && Math.abs(diffY) < 3) {
+            clickX = -1;
+            clickY = -1;
+        } else {
+            fishRotation = Math.atan(diffY/diffX)
+            if ( clickX <= x ) {
+                fishRotation += Math.PI;
+            }
+            x += speed * Math.cos(fishRotation);
+            y -= speed * Math.sin(fishRotation);
+        }
+    }
+    drawFish(x, y, 50, 40, fishRotation);
 }
 
 function animateLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.lineWidth = 2;
     drawRipples(ripples);
     drawFishes();
 
