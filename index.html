@@ -23,7 +23,6 @@
             <!-- Disabled by default -->
             <li class="right"><a id="rain-toggle"><i id="rain-toggle-icon" class="fas fa-tint-slash"></i></a></li>
             <li class="right"><a id="moon-toggle"><i id="moon-toggle-icon" class="fas fa-moon"></i></a></li>
-            <li class="right"><a id="fish-toggle"><i id="fish-toggle-icon" class="fas fa-fish"></i></a></li>
         </ul>
     </nav>
 
@@ -31,9 +30,17 @@
     <!-- Home Section -->
     <div class="container">
         <div class="row">
+
+
             <div id="home" class="home">
-                <canvas id="homeCanvas" class="homeCanvas"></canvas>
+                <svg id="homeSky" class="home-sky">
+                    <circle id="moon" class="moon" cx="50%" cy="30%" r="100" stroke="black" stroke-width="3" fill="goldenrod" />
+                    <ellipse id="moon2" class="moon" cx="50%" cy="80%" rx="100" ry="75" stroke="black" stroke-width="3" fill="goldenrod" />
+                </svg> 
+                <!-- <div class="home-sky"></div> -->
                 <!-- <div class="d-flex justify-content-center align-items-center name"> -->
+
+
                 <div class="name-plate">
                     <h1>David Lee</h1>
                     <hr class="name-separator">

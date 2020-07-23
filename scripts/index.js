@@ -3,7 +3,7 @@ const MAX_RIPPLE_SIZE = 300;
 const RAIN_ENABLED_CLASS = "fas fa-tint";
 const RAIN_DISABLED_CLASS = "fas fa-tint-slash";
 const MOON_ENABLED_CLASS = "fas fa-moon";
-const MOON_DISABLED_CLASS = "far fa-moon";
+const MOON_DISABLED_CLASS = "fas fa-fish";
 
 // HTML Element Variables and friends
 const canvas = document.getElementById('canvas');
@@ -14,8 +14,9 @@ const rainToggleIcon = document.getElementById("rain-toggle-icon");
 const moonToggle = document.getElementById("moon-toggle");
 const moonToggleIcon = document.getElementById("moon-toggle-icon");
 
-const homeCanvas = document.getElementById("homeCanvas");
-const homeCtx = homeCanvas.getContext('2d');
+const homeDiv = document.getElementById("home");
+const moon = document.getElementById("moon");
+const moon2 = document.getElementById("moon2");
 
 // State Variables
 let isRaining = false;
@@ -27,10 +28,7 @@ function initCanvases() {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
     rect = canvas.getBoundingClientRect();
-
-    homeCanvas.height = window.innerHeight;
-    homeCanvas.width = window.innerWidth;
-    drawMoon(0, 0);
+    drawMoons(0, 0);
 }
 // Helper function to generate color rgb string
 function generateColor(t) {
@@ -116,18 +114,16 @@ moonToggle.addEventListener('click', () => {
     isMoonEnabled = !isMoonEnabled;
 });
 
+
 // Home Canvas
-function drawMoon(xSway, ySway) {
-    homeCtx.clearRect(0, 0, homeCanvas.width, homeCanvas.height);
-    homeCtx.fillStyle = "white";
-    homeCtx.beginPath();
-    homeCtx.arc((homeCanvas.width / 2) + xSway, homeCanvas.height / 4, 100, 0, 2 * Math.PI);
-    homeCtx.fill();
+function drawMoons(xSway, ySway) {
+    moon.style = "transform: translate(" + xSway + "px, " + ySway/10 + "px)";
+    moon2.style = "transform: translate(" + xSway + "px, " + ySway/-10 + "px)";
 }
 
-homeCanvas.addEventListener("mousemove", (e) => {
+homeDiv.addEventListener("mousemove", (e) => {
     if (isMoonEnabled) {
-        drawMoon(((canvas.width / 2) - e.clientX) * 0.5, e.clientY);
+        drawMoons(((canvas.width / 2) - e.clientX) * 0.1, ((canvas.height / 2) - e.clientY) * 0.2);
     }
 });
 
