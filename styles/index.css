@@ -73,6 +73,7 @@ h2 {
 
     display: flex;
     align-items: center;
+    background: #dddddd;
 }
 
 .name-plate {
@@ -90,8 +91,10 @@ h2 {
 .home-sky {
     position: absolute;
     top: 0;
-    height: 65vh;
+    height: 60vh;
     width: 100%;
+    background: black;
+    border-bottom: maroon 5px solid;
 }
 
 .home-svg {

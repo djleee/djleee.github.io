@@ -132,8 +132,8 @@ function drawMoons(xSway, ySway) {
         moon.style = "transform: translate(" + xSway + "px, " + ySway/10 + "px)";
         moon2.style = "transform: translate(" + xSway + "px, " + ySway/-10 + "px)";
     } else {
-        fish.style = "transform: translate(" + (2*homeDiv.clientWidth/5 + xSway) + "px, " + ((homeDiv.clientHeight/4) + ySway/10) + "px) scale(0.5, 0.5)";
-        fish2.style = "transform: translate(" + (2*homeDiv.clientWidth/5 + xSway) + "px, " + ((3*homeDiv.clientHeight/4) + ySway/-10) + "px) scale(0.5, -0.5)";
+        fish.style = "transform: translate(" + (2*homeDiv.clientWidth/5 + xSway) + "px, " + ((homeDiv.clientHeight/5) + ySway/10) + "px) scale(0.5, 0.5)";
+        fish2.style = "transform: translate(" + (3*homeDiv.clientWidth/5 + xSway) + "px, " + ((5*homeDiv.clientHeight/6) + ySway/-10) + "px) scale(-0.5, -0.5)";
     }
 }
 
