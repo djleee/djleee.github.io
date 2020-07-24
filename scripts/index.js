@@ -17,6 +17,8 @@ const moonToggleIcon = document.getElementById("moon-toggle-icon");
 const homeDiv = document.getElementById("home");
 const moon = document.getElementById("moon");
 const moon2 = document.getElementById("moon2");
+const fish = document.getElementById("fish");
+const fish2 = document.getElementById("fish2");
 
 // State Variables
 let isRaining = false;
@@ -108,23 +110,37 @@ rainToggle.addEventListener('click', () => {
 moonToggle.addEventListener('click', () => {
     if (isMoonEnabled) {
         moonToggleIcon.className = MOON_DISABLED_CLASS;
+        moon.style = "display: none";
+        moon2.style = "display: none";
+        fish.style = "display: ";
+        fish2.style = "display: ";
     } else {
         moonToggleIcon.className = MOON_ENABLED_CLASS;
+        moon.style = "display: ";
+        moon2.style = "display: ";
+        fish.style = "display: none";
+        fish2.style = "display: none";
     }
     isMoonEnabled = !isMoonEnabled;
+    drawMoons(0, 0);
 });
 
 
 // Home Canvas
 function drawMoons(xSway, ySway) {
-    moon.style = "transform: translate(" + xSway + "px, " + ySway/10 + "px)";
-    moon2.style = "transform: translate(" + xSway + "px, " + ySway/-10 + "px)";
+    if (isMoonEnabled) {
+        moon.style = "transform: translate(" + xSway + "px, " + ySway/10 + "px)";
+        moon2.style = "transform: translate(" + xSway + "px, " + ySway/-10 + "px)";
+    } else {
+        fish.style = "transform: translate(" + (2*homeDiv.clientWidth/5 + xSway) + "px, " + ((homeDiv.clientHeight/4) + ySway/10) + "px) scale(0.5, 0.5)";
+        fish2.style = "transform: translate(" + (2*homeDiv.clientWidth/5 + xSway) + "px, " + ((3*homeDiv.clientHeight/4) + ySway/-10) + "px) scale(0.5, -0.5)";
+    }
 }
 
 homeDiv.addEventListener("mousemove", (e) => {
-    if (isMoonEnabled) {
-        drawMoons(((canvas.width / 2) - e.clientX) * 0.1, ((canvas.height / 2) - e.clientY) * 0.2);
-    }
+    // if (isMoonEnabled) {
+    // }
+    drawMoons(((canvas.width / 2) - e.clientX) * 0.1, ((canvas.height / 2) - e.clientY) * 0.2);
 });
 
 function animateLoop() {
