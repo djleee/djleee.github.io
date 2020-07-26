@@ -14,7 +14,7 @@ const rainToggleIcon = document.getElementById("rain-toggle-icon");
 const moonToggle = document.getElementById("moon-toggle");
 const moonToggleIcon = document.getElementById("moon-toggle-icon");
 
-const homeDiv = document.getElementById("home-overlay");
+const homeDiv = document.getElementById("home");
 const moon = document.getElementById("moon");
 const moon2 = document.getElementById("moon2");
 const fish = document.getElementById("fish");
@@ -147,7 +147,7 @@ function drawMoons(xSway, ySway) {
         moon2.style = "transform: translate(" + xSway + "px, " + ySway/-10 + "px)";
     } else {
         fish.style = "transform: translate(" + (2*homeDiv.clientWidth/5 + xSway) + "px, " + ((homeDiv.clientHeight/5) + ySway/10) + "px) scale(0.5, 0.5)";
-        fish2.style = "transform: translate(" + (3*homeDiv.clientWidth/5 + xSway) + "px, " + ((5*homeDiv.clientHeight/6) + ySway/-10) + "px) scale(-0.5, -0.5)";
+        fish2.style = "transform: translate(" + (3*homeDiv.clientWidth/5 + xSway) + "px, " + ((7*homeDiv.clientHeight/8) + ySway/-10) + "px) scale(-0.5, -0.35)";
     }
 }
 
