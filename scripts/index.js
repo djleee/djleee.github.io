@@ -14,7 +14,7 @@ const rainToggleIcon = document.getElementById("rain-toggle-icon");
 const moonToggle = document.getElementById("moon-toggle");
 const moonToggleIcon = document.getElementById("moon-toggle-icon");
 
-const homeDiv = document.getElementById("home");
+const homeDiv = document.getElementById("home-overlay");
 const moon = document.getElementById("moon");
 const moon2 = document.getElementById("moon2");
 const fish = document.getElementById("fish");
@@ -35,6 +35,9 @@ function initCanvases() {
 // Helper function to generate color rgb string
 function generateColor(t) {
     return `rgba(255, 255, 255, ${t})`
+}
+function generateInvertedColor(t) {
+    return `rgba(0, 0, 0, ${t})`
 }
 // Helper to create a ripple object
 function initRipple(x, y) {
@@ -73,6 +76,19 @@ function drawRipples(rips) {
         );
         ctx.stroke();
 
+        // Draw Inverted one for inverted segments
+        ctx.beginPath();
+        // Transitions the color from 255 to 0
+        ctx.strokeStyle = generateInvertedColor((Math.max(MAX_RIPPLE_SIZE - (rips[i].r), 0) / MAX_RIPPLE_SIZE));
+        ctx.arc(
+            (rips[i].x - rect.left) / (rect.right - rect.left) * canvas.width,
+            (rips[i].y - rect.top) / (rect.bottom - rect.top) * canvas.height,
+            rips[i].r - 1,
+            0,
+            2 * Math.PI
+        );
+        ctx.stroke();
+
         rips[i].r += rips[i].delta;
 
         // Only check the most recent ripple
@@ -92,8 +108,6 @@ function drawRipples(rips) {
 let ripples = []
 canvas.addEventListener('click', (e) => {
     ripples.unshift(initRipple(e.clientX, e.clientY));
-    clickX = e.clientX;
-    clickY = e.clientY;
 });
 rainToggle.addEventListener('click', () => {
     if (isRaining) {
@@ -141,6 +155,10 @@ homeDiv.addEventListener("mousemove", (e) => {
     // if (isMoonEnabled) {
     // }
     drawMoons(((canvas.width / 2) - e.clientX) * 0.1, ((canvas.height / 2) - e.clientY) * 0.2);
+});
+
+homeDiv.addEventListener('click', (e) => {
+    ripples.unshift(initRipple(e.clientX, e.clientY));
 });
 
 function animateLoop() {

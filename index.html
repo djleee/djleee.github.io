@@ -31,14 +31,15 @@
     <div class="container">
         <div class="row">
 
-
+            <div id="home-overlay" class="home-overlay"></div>
             <div id="home" class="home">
-                <div class="home-sky"></div>
-                <svg id="homeSky" class="home-svg">
-                    <circle id="moon" class="moon" cx="50%" cy="30%" r="10%" stroke="black" stroke-width="3"
-                        fill="#dddddd" />
-                    <ellipse id="moon2" class="moon" cx="50%" cy="80%" rx="8%" ry="8%" stroke="black" stroke-width="3"
-                        fill="#000000" />
+                <svg id="home-svg" class="home-svg">
+                    <rect id="reflection" class="reflection" width="200%" height="30%" y="70%" style="fill: white" />
+
+                    <circle id="moon" class="moon" cx="50%" cy="25%" r="10%" stroke="black" stroke-width="3"
+                        fill="white" />
+                    <ellipse id="moon2" class="moon" cx="50%" cy="85%" rx="8%" ry="8%" stroke="black" stroke-width="3"
+                        fill="black" />
 
                     <g id="fish" style="display: none;">
                         <path
