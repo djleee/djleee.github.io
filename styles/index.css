@@ -102,6 +102,18 @@ h2 {
     z-index: -1;
 }
 
+/* Section */
+.section-header {
+
+}
+.section-separator {
+    position: relative;
+    width: 280px;
+    border: 2px solid maroon;
+    margin: 30px auto;
+}
+
+
 /* About Section */
 .about {
     /* TODO: Remove height */
@@ -138,14 +150,13 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     flex-wrap: wrap;
 }
 
 .workplace-card {
     position: relative;
     width: 320px;
-    text-align: center;
 }
 
 .workplace-img {

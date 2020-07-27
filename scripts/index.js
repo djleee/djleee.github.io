@@ -125,7 +125,7 @@ moonToggle.addEventListener('click', () => {
     if (isMoonEnabled) {
         moonToggleIcon.className = MOON_DISABLED_CLASS;
         moon.style = "display: none";
-        moon2.style = "display: none";
+        moon2.style = "display: none;perspective: 100px";
         fish.style = "display: ";
         fish2.style = "display: ";
     } else {
@@ -143,11 +143,11 @@ moonToggle.addEventListener('click', () => {
 // Home Canvas
 function drawMoons(xSway, ySway) {
     if (isMoonEnabled) {
-        moon.style = "transform: translate(" + xSway + "px, " + ySway/10 + "px)";
-        moon2.style = "transform: translate(" + xSway + "px, " + ySway/-10 + "px)";
+        moon.style = "transform: translate(" + xSway + "px, " + ySway / 10 + "px)";
+        moon2.style = "transform: translate(" + xSway + "px, " + ySway / -10 + "px)";
     } else {
-        fish.style = "transform: translate(" + (2*homeDiv.clientWidth/5 + xSway) + "px, " + ((homeDiv.clientHeight/5) + ySway/10) + "px) scale(0.5, 0.5)";
-        fish2.style = "transform: translate(" + (3*homeDiv.clientWidth/5 + xSway) + "px, " + ((7*homeDiv.clientHeight/8) + ySway/-10) + "px) scale(-0.5, -0.35)";
+        fish.style = "transform: translate(" + (2 * homeDiv.clientWidth / 5 + xSway) + "px, " + ((homeDiv.clientHeight / 5) + ySway / 10) + "px) scale(0.5, 0.5)";
+        fish2.style = "transform: translate(" + (3 * homeDiv.clientWidth / 5 + xSway) + "px, " + ((7 * homeDiv.clientHeight / 8) + ySway / -10) + "px) scale(-0.5, -0.35)";
     }
 }
 
@@ -169,3 +169,16 @@ function animateLoop() {
     requestAnimationFrame(animateLoop);
 }
 animateLoop();
+
+// Workplace gallery
+let expandedDiv = document.createElement("div");
+for (let item of document.getElementsByClassName("workplace-card")) {
+    if(expandedDiv.parentNode) {
+        expandedDiv.parentNode.removeChild(expandedDiv);
+    }
+    item.addEventListener('click', () => {
+        expandedDiv.style = "height: 600px;";
+        expandedDiv.innerHTML = item.dataset.company;
+        item.append(expandedDiv);
+    });
+}
