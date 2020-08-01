@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: rgb(12, 12, 12);
+    background: #0c0c0c;
     color: white;
     margin: 0;
 }
@@ -87,19 +87,26 @@ h2 {
     border: 2px solid maroon;
 }
 
-.home-sky {
-    position: absolute;
-    top: 0;
-    height: 60vh;
-    width: 100%;
-    background: black;
-}
-
 .home-svg {
     position: absolute;
     height: 100vh;
     width: 100%;
     z-index: -1;
+}
+
+/* .home-down-div {
+    position: absolute;
+    height: 10%;
+    bottom: 100vh;
+    width: 100%;
+} */
+
+.home-down-button {
+    position: absolute;
+    font-size: 3em;
+    top: 90%;
+    left: 50%;
+    margin-left: -1em;
 }
 
 /* Section */
@@ -116,13 +123,12 @@ h2 {
 
 /* About Section */
 .about {
-    /* TODO: Remove height */
-    height: 100vh;
+
 }
 
 .about-blurb {
     display: inline-block;
-    padding: 10% 10%;
+    padding: 0 10% 10% 10%;
 }
 
 .about-image {
@@ -186,6 +192,32 @@ h2 {
 }
 
 .projects-gallery-entry:hover {
+    flex-grow: 2;
+}
+
+/* Interests Section */
+.interests {
+    /* TODO: Remove height */
+    height: 50vh;
+    text-align: center;
+}
+
+.interests-gallery {
+    display: flex;
+    position: relative;
+}
+
+.interests-gallery-entry {
+    display: relative;
+    flex-grow: 1;
+    transition: 1s;
+
+    /* TODO: Remove */
+    height: 240px;
+    border: red solid 2px;
+}
+
+.interests-gallery-entry:hover {
     flex-grow: 2;
 }
 
