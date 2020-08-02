@@ -32,7 +32,7 @@ h2 {
     width: 100%;
     z-index: 1;
 
-    background-color: rgb(26, 22, 22);
+    background-color: ;
     overflow: hidden;
 }
 
@@ -94,19 +94,18 @@ h2 {
     z-index: -1;
 }
 
-/* .home-down-div {
-    position: absolute;
-    height: 10%;
-    bottom: 100vh;
-    width: 100%;
-} */
-
 .home-down-button {
     position: absolute;
     font-size: 3em;
     top: 90%;
     left: 50%;
     margin-left: -1em;
+}
+
+.home-down-button:focus,.home-down-button:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
+    color: #f6a950;
 }
 
 /* Section */

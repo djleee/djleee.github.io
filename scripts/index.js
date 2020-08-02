@@ -14,6 +14,8 @@ const rainToggleIcon = document.getElementById("rain-toggle-icon");
 const moonToggle = document.getElementById("moon-toggle");
 const moonToggleIcon = document.getElementById("moon-toggle-icon");
 
+const homeDownButton = document.getElementById("home-down-button");
+
 const homeDiv = document.getElementById("home");
 const moon = document.getElementById("moon-group");
 const moonOverlayCircle = document.getElementById("moon-overlay-circle");
@@ -35,9 +37,6 @@ function initCanvases() {
 // Helper function to generate color rgb string
 function generateColor(t) {
     return `rgba(255, 255, 255, ${t})`
-}
-function generateInvertedColor(t) {
-    return `rgba(0, 0, 0, ${t})`
 }
 // Helper to create a ripple object
 function initRipple(x, y) {
@@ -71,19 +70,6 @@ function drawRipples(rips) {
             (rips[i].x - rect.left) / (rect.right - rect.left) * canvas.width,
             (rips[i].y - rect.top) / (rect.bottom - rect.top) * canvas.height,
             rips[i].r,
-            0,
-            2 * Math.PI
-        );
-        ctx.stroke();
-
-        // Draw Inverted one for inverted segments
-        ctx.beginPath();
-        // Transitions the color from 255 to 0
-        ctx.strokeStyle = generateInvertedColor((Math.max(MAX_RIPPLE_SIZE - (rips[i].r), 0) / MAX_RIPPLE_SIZE));
-        ctx.arc(
-            (rips[i].x - rect.left) / (rect.right - rect.left) * canvas.width,
-            (rips[i].y - rect.top) / (rect.bottom - rect.top) * canvas.height,
-            rips[i].r - 1,
             0,
             2 * Math.PI
         );
@@ -220,3 +206,11 @@ if (b >= 8) b = 0; // 0 and 8 are the same so turn 8 into 0
 
 moonOverlayCircle.style = MoonOverlayCircleStyles[b];
 moonOverlayRectangle.style = MoonOverlayRectangleStyles[b];
+
+
+//Home Scroll down button
+function homeDownButtonAction() {
+    document.getElementById('about').scrollIntoView({block: "center",behavior: "smooth"});
+}
+homeDownButton.addEventListener('click', homeDownButtonAction);
+homeDownButton.addEventListener('keypress', (e) => {if (e.keyCode == 13) {homeDownButtonAction();} });
