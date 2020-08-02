@@ -223,54 +223,41 @@ h2 {
     background-size: cover;
 }
 
-/* Interests Section */
-.interests {
-    /* TODO: Remove height */
-    height: 50vh;
-    text-align: center;
-}
-
-.interests-gallery {
-    display: flex;
-    position: relative;
-}
-
-.interests-gallery-entry {
-    display: relative;
-    flex-grow: 1;
-    transition: 1s;
-
-    /* TODO: Remove */
-    height: 240px;
-    border: red solid 2px;
-}
-
-.interests-3d-model {
+.projects-3d-model {
     background: url(../images/3d_model.png) no-repeat center center;
     background-size: cover;
 }
 
-.interests-keyboard-entry {
+.projects-keyboard-entry {
     background: url(../images/keyboard_build.jpg) no-repeat center center;
     background-size: cover;
 }
 
-.interests-gallery-entry:hover {
-    flex-grow: 2;
-    filter: blur(4px) brightness(20%);
-}
-
 /* Footer */
 .footer {
-    position: relative;
+    width: 100%;
     height: 70px;
-
     background: gray;
-    display: flex;
-    justify-content: center;
 }
 
-.footer-link {
+.footer-message {
+    display: inline-flex;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    display: inline-flex;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.contact-link {
     flex-grow: 1;
     text-align: center;
     vertical-align: middle;
@@ -279,18 +266,18 @@ h2 {
     color: white;
 }
 
-.footer-email:hover {
+.contact-email:hover {
     background: goldenrod;
 }
-.footer-github:hover {
+.contact-github:hover {
     background: #4078c0;
 }
-.footer-linkedin:hover {
+.contact-linkedin:hover {
     background: #0077b5;
 }
-.footer-lastfm:hover {
+.contact-lastfm:hover {
     background: #d51007;
 }
-.footer-thingiverse:hover {
+.contact-thingiverse:hover {
     background: #248bfb;
 }
