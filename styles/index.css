@@ -6,6 +6,7 @@ body {
     background: #0c0c0c;
     color: white;
     margin: 0;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .canvas {
@@ -19,6 +20,7 @@ body {
 h1 {
     text-align: center;
     position: relative;
+    text-shadow: 1px 1px 3px #000000, -1px -1px 3px #000000;
 }
 h2 {
     text-align: center;
@@ -49,10 +51,6 @@ h2 {
 
 .navbar li:hover, .navbar li:focus-within{
     background-color: maroon;
-}
-
-.navbar .right {
-    float: right;
 }
 
 .navbar a {
@@ -105,7 +103,7 @@ h2 {
 .home-down-button:focus,.home-down-button:hover {
     transition: 0.5s;
     transform: scale(1.1);
-    color: #f6a950;
+    color: maroon;
 }
 
 /* Section */
@@ -122,25 +120,16 @@ h2 {
 
 /* About Section */
 .about {
-
+    display: inline-block;
 }
 
 .about-blurb {
     display: inline-block;
-    padding: 0 10% 10% 10%;
-}
-
-.about-image {
-    position: relative;
-    display: inline-block;
-    width: 10%;
     vertical-align: middle;
 }
 
 .about-text {
     position: relative;
-    display: inline-block;
-    width: 50%;
     vertical-align: middle;
     text-align: center;
 }
@@ -205,7 +194,6 @@ h2 {
 
     /* TODO: Remove */
     height: 240px;
-    border: red solid 2px;
 }
 
 .projects-gallery-entry:hover {
@@ -240,21 +228,12 @@ h2 {
     background: gray;
 }
 
-.footer-message {
-    display: inline-flex;
-    position: relative;
-    width: 50%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
 .contact {
     display: inline-flex;
     position: relative;
     width: 50%;
     height: 100%;
-    float: right;
+    left: 25%;
 }
 
 .contact-link {
