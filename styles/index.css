@@ -29,7 +29,7 @@ h2 {
 
 .navbar {
     position: fixed;
-    width: 100%;
+    right: 0;
     z-index: 1;
 
     background-color: ;
@@ -47,7 +47,7 @@ h2 {
     text-align: center;
 }
 
-.navbar li:hover{
+.navbar li:hover, .navbar li:focus-within{
     background-color: maroon;
 }
 
@@ -133,7 +133,7 @@ h2 {
 .about-image {
     position: relative;
     display: inline-block;
-    width: 30%;
+    width: 10%;
     vertical-align: middle;
 }
 
@@ -147,25 +147,43 @@ h2 {
 
 /* Work Section */
 .work {
-    /* TODO: Remove height */
-    height: 50vh;
+    margin-bottom: 5%;
 }
 
 .workplace-gallery {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* align-items: center; */
     flex-wrap: wrap;
 }
 
 .workplace-card {
     position: relative;
-    width: 320px;
+    width: 15%;
+    min-width: 300px;
+    margin: 1%;
 }
 
-.workplace-img {
-    width: 240px;
+.workplace-card img {
+    width: 100%;
+    min-width: 300px;
+}
+
+.workplace-card:hover img {
+    filter: blur(4px) brightness(20%);
+}
+
+.workplace-card div {
+    display: none;
+}
+
+.workplace-card:hover div {
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Projects Section */
@@ -192,6 +210,17 @@ h2 {
 
 .projects-gallery-entry:hover {
     flex-grow: 2;
+    filter: blur(4px) brightness(20%);
+}
+
+.project-watchface {
+    background: url(../images/watchface.png) no-repeat center center;
+    background-size: cover;
+}
+
+.project-osu-keyboard {
+    background: url(../images/osu_keyboard.jpg) no-repeat center center;
+    background-size: cover;
 }
 
 /* Interests Section */
@@ -216,8 +245,19 @@ h2 {
     border: red solid 2px;
 }
 
+.interests-3d-model {
+    background: url(../images/3d_model.png) no-repeat center center;
+    background-size: cover;
+}
+
+.interests-keyboard-entry {
+    background: url(../images/keyboard_build.jpg) no-repeat center center;
+    background-size: cover;
+}
+
 .interests-gallery-entry:hover {
     flex-grow: 2;
+    filter: blur(4px) brightness(20%);
 }
 
 /* Footer */

@@ -44,7 +44,7 @@ function initRipple(x, y) {
         x: x,
         y: y,
         r: 1,
-        delta: 2
+        delta: 1
     }
 }
 // Create a ripple somewhere in the canvas
@@ -149,19 +149,6 @@ function animateLoop() {
     requestAnimationFrame(animateLoop);
 }
 animateLoop();
-
-// Workplace gallery
-let expandedDiv = document.createElement("div");
-for (let item of document.getElementsByClassName("workplace-card")) {
-    if (expandedDiv.parentNode) {
-        expandedDiv.parentNode.removeChild(expandedDiv);
-    }
-    item.addEventListener('click', () => {
-        expandedDiv.style = "height: 600px;";
-        expandedDiv.innerHTML = item.dataset.company;
-        item.append(expandedDiv);
-    });
-}
 
 // Update moon phase!
 // Original Snippet: https://gist.github.com/endel/dfe6bb2fbe679781948c
