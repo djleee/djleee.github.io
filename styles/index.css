@@ -117,15 +117,26 @@ h2 {
     margin: 30px auto;
 }
 
+.list-card i {
+    display: inline-block;
+    margin-right: 20px;
+}
 
-/* About Section */
-.about {
+.list-card h3 {
+    position: relative;
     display: inline-block;
 }
 
-.about-blurb {
-    display: inline-block;
-    vertical-align: middle;
+.list-card h4 {
+    position: relative;
+    text-align: center;
+}
+
+/* About Section */
+.about {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20vh;
 }
 
 .about-text {
@@ -136,89 +147,19 @@ h2 {
 
 /* Work Section */
 .work {
-    margin-bottom: 5%;
-}
-
-.workplace-gallery {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.workplace-card {
-    position: relative;
-    width: 15%;
-    min-width: 300px;
-    margin: 1%;
-}
-
-.workplace-card img {
-    width: 100%;
-    min-width: 300px;
-}
-
-.workplace-card:hover img {
-    filter: blur(4px) brightness(20%);
-}
-
-.workplace-card div {
-    display: none;
-}
-
-.workplace-card:hover div {
-    display: block;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10%;
+    margin-bottom: 10vh;
+    width: 40%;
 }
 
 /* Projects Section */
 .projects {
-    /* TODO: Remove height */
-    height: 50vh;
-    text-align: center;
-}
-
-.projects-gallery {
-    display: flex;
-    position: relative;
-}
-
-.projects-gallery-entry {
-    display: relative;
-    flex-grow: 1;
-    transition: 1s;
-
-    /* TODO: Remove */
-    height: 240px;
-}
-
-.projects-gallery-entry:hover {
-    flex-grow: 2;
-    filter: blur(4px) brightness(20%);
-}
-
-.project-watchface {
-    background: url(../images/watchface.png) no-repeat center center;
-    background-size: cover;
-}
-
-.project-osu-keyboard {
-    background: url(../images/osu_keyboard.jpg) no-repeat center center;
-    background-size: cover;
-}
-
-.projects-3d-model {
-    background: url(../images/3d_model.png) no-repeat center center;
-    background-size: cover;
-}
-
-.projects-keyboard-entry {
-    background: url(../images/keyboard_build.jpg) no-repeat center center;
-    background-size: cover;
+    vertical-align: top;
+    display: inline-block;
+    margin-bottom: 10vh;
+    width: 40%;
 }
 
 /* Footer */
