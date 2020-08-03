@@ -40,11 +40,10 @@ function initCanvases() {
 }
 // Helper function to generate color rgb string
 function generateColor(t) {
-    if (isDarkEnabled) {
-        return `rgba(255, 255, 255, ${t})`
-    } else {
-        return `rgba(0, 0, 0, ${t})`
-    }
+    return `rgba(255, 255, 255, ${t})`
+}
+function generateInvertedColor(t) {
+    return `rgba(0, 0, 0, ${t})`
 }
 // Helper to create a ripple object
 function initRipple(x, y) {
@@ -78,6 +77,17 @@ function drawRipples(rips) {
             (rips[i].x - rect.left) / (rect.right - rect.left) * canvas.width,
             (rips[i].y - rect.top) / (rect.bottom - rect.top) * canvas.height,
             rips[i].r,
+            0,
+            2 * Math.PI
+        );
+        ctx.stroke();
+        // Inverted color wave 1 smaller
+        ctx.beginPath();
+        ctx.strokeStyle = generateInvertedColor((Math.max(MAX_RIPPLE_SIZE - (rips[i].r), 0) / MAX_RIPPLE_SIZE));
+        ctx.arc(
+            (rips[i].x - rect.left) / (rect.right - rect.left) * canvas.width,
+            (rips[i].y - rect.top) / (rect.bottom - rect.top) * canvas.height,
+            rips[i].r-1,
             0,
             2 * Math.PI
         );
