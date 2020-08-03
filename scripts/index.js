@@ -36,7 +36,7 @@ function initCanvases() {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
     rect = canvas.getBoundingClientRect();
-    drawMoons(0, 0);
+    drawMoonFish(0, 0);
 }
 // Helper function to generate color rgb string
 function generateColor(t) {
@@ -126,31 +126,31 @@ moonToggle.addEventListener('click', () => {
         fish.style = "display: none";
     }
     isMoonEnabled = !isMoonEnabled;
-    drawMoons(0, 0);
+    drawMoonFish(0, 0);
 });
 lightToggle.addEventListener('click', () => {
     if (isDarkEnabled) {
-        stylesheet.href = "styles/index_light.css"
+        stylesheet.href = "styles/index_light.css";
+        fish.href.baseVal="./images/koi-black.png";
     } else {
-        stylesheet.href = "styles/index.css"
+        stylesheet.href = "styles/index.css";
+        fish.href.baseVal="./images/koi-white.png";
     }
     isDarkEnabled = !isDarkEnabled;
 })
 
 
 // Home Canvas
-function drawMoons(xSway, ySway) {
+function drawMoonFish(xSway, ySway) {
     if (isMoonEnabled) {
         moon.style = "transform: translate(" + xSway + "px, " + ySway / 10 + "px)";
     } else {
-        fish.style = "transform: translate(" + (2 * homeDiv.clientWidth / 5 + xSway) + "px, " + ((homeDiv.clientHeight / 5) + ySway / 10) + "px) scale(0.5, 0.5)";
+        fish.style = "transform: translate(" + (xSway - (fish.width.baseVal.value/2)) + "px, " + ((ySway / 10) - (fish.height.baseVal.value/2)) + "px)";
     }
 }
 
 homeDiv.addEventListener("mousemove", (e) => {
-    // if (isMoonEnabled) {
-    // }
-    drawMoons(((canvas.width / 2) - e.clientX) * 0.1, ((canvas.height / 2) - e.clientY) * 0.2);
+    drawMoonFish(((canvas.width / 2) - e.clientX) * 0.1, ((canvas.height / 2) - e.clientY) * 0.2);
 });
 
 homeDiv.addEventListener('click', (e) => {
