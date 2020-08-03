@@ -201,3 +201,22 @@ h2 {
 .contact-thingiverse:hover {
     background: #248bfb;
 }
+
+@media only screen and (max-width: 768px) {
+
+    /* Work Section */
+    .work {
+        width: 80%;
+    }
+    
+    /* Projects Section */
+    .projects {
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .contact {
+        width: 100%;
+        left: 0;
+    }
+}
