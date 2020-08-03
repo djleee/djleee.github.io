@@ -4,15 +4,18 @@ const RAIN_ENABLED_CLASS = "fas fa-tint";
 const RAIN_DISABLED_CLASS = "fas fa-tint-slash";
 const MOON_ENABLED_CLASS = "fas fa-moon";
 const MOON_DISABLED_CLASS = "fas fa-fish";
+const LIGHT_ENABLED_CLASS = "far fa-lightbulb";
 
 // HTML Element Variables and friends
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const stylesheet = document.getElementById("stylesheet");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 let rect = canvas.getBoundingClientRect();
 const rainToggle = document.getElementById("rain-toggle");
 const rainToggleIcon = document.getElementById("rain-toggle-icon");
 const moonToggle = document.getElementById("moon-toggle");
 const moonToggleIcon = document.getElementById("moon-toggle-icon");
+const lightToggle = document.getElementById("light-toggle");
 
 const homeDownButton = document.getElementById("home-down-button");
 
@@ -25,6 +28,7 @@ const fish = document.getElementById("fish");
 // State Variables
 let isRaining = false;
 let isMoonEnabled = true;
+let isDarkEnabled = true;
 
 //Helper Functions
 // Reset Canvas size to window
@@ -36,7 +40,11 @@ function initCanvases() {
 }
 // Helper function to generate color rgb string
 function generateColor(t) {
-    return `rgba(255, 255, 255, ${t})`
+    if (isDarkEnabled) {
+        return `rgba(255, 255, 255, ${t})`
+    } else {
+        return `rgba(0, 0, 0, ${t})`
+    }
 }
 // Helper to create a ripple object
 function initRipple(x, y) {
@@ -120,6 +128,14 @@ moonToggle.addEventListener('click', () => {
     isMoonEnabled = !isMoonEnabled;
     drawMoons(0, 0);
 });
+lightToggle.addEventListener('click', () => {
+    if (isDarkEnabled) {
+        stylesheet.href = "styles/index_light.css"
+    } else {
+        stylesheet.href = "styles/index.css"
+    }
+    isDarkEnabled = !isDarkEnabled;
+})
 
 
 // Home Canvas

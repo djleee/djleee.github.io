@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>David Lee</title>
-    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="styles/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 
@@ -17,8 +17,8 @@
     <nav class="navbar">
         <ul>
             <li><a id="rain-toggle"><i id="rain-toggle-icon" class="fas fa-tint-slash" tabindex="0"></i></a></li>
-            <li><a id="moon-toggle"><i id="moon-toggle-icon" class="fas fa-moon" tabindex="0"></i></a>
-            </li>
+            <li><a id="moon-toggle"><i id="moon-toggle-icon" class="fas fa-moon" tabindex="0"></i></a></li>
+            <li><a id="light-toggle"><i id="light-toggle-icon" class="fas fa-lightbulb" tabindex="0"></i></a></li>
         </ul>
     </nav>
 
@@ -30,9 +30,9 @@
             <svg id="home-svg" class="home-svg">
 
                 <g id="moon-group">
-                    <circle id="moon" class="moon" cx="50%" cy="25%" r="10%" fill="#ffffff" />
-                    <circle id="moon-overlay-circle" cx="50%" cy="25%" r="10%" fill="#0c0c0c" style="display: none;" />
-                    <rect id="moon-overlay-rectangle" fill="#0c0c0c" style="display: none;" />
+                    <circle id="moon" class="moon" cx="50%" cy="25%" r="10%" />
+                    <circle id="moon-overlay-circle" cx="50%" cy="25%" r="10%" style="display: none;" />
+                    <rect id="moon-overlay-rectangle" style="display: none;" />
                 </g>
 
                 <g id="fish" style="display: none;">
