@@ -30,7 +30,7 @@
             <svg id="home-svg" class="home-svg">
 
                 <g id="moon-group">
-                    <circle id="moon" class="moon" cx="50%" cy="25%" r="10%" fill="#FFFFFF" />
+                    <circle id="moon" class="moon" cx="50%" cy="25%" r="10%" fill="#ffffff" />
                     <circle id="moon-overlay-circle" cx="50%" cy="25%" r="10%" fill="#0c0c0c" style="display: none;" />
                     <rect id="moon-overlay-rectangle" fill="#0c0c0c" style="display: none;" />
                 </g>
@@ -68,15 +68,10 @@
                 <div class="about-text">
                     My name is David. I'm a software developer and lover of most thing tech. Studied Computer
                     Engineering at the University of Waterloo and am currently working in Toronto.
-                    <ul>
-                        <li>Video games</li>
-                        <li>Software</li>
-                        <li>Keyboards</li>
-                        <li>Anime</li>
-                        <li>Mahjong</li>
-                        <li>Learning Japanese (Trying)</li>
-                        <li>3D Printing</li>
-                    </ul>
+                    <br />
+                    <br />
+                    Video games | Software | Keyboards | Anime | Mahjong | Learning Japanese (Trying) | 3D Printing
+
                 </div>
             </div>
 
@@ -88,65 +83,74 @@
                 <hr class="section-separator">
             </div>
 
-            <div class="workplace-gallery">
-
-                <div class="workplace-card" data-company="Toronto Transit Commission"
-                    data-title="Software Engineer (temp)">
-                    <img src="images/TTCLogo.jpg" />
-                    <div>
-                        <h3>Toronto Transit Commision</h3>
-                        <h4>Developer</h4>
-                    </div>
+            <div class="workplace-list">
+                <div class="list-card">
+                    <i class="fas fa-bus-alt"></i>
+                    <h3>Toronto Transit Commision</h3>
+                    <h4>C#.NET, Oracle & Crystal Reports Developer / IFS</h4>
                 </div>
-                <div class="workplace-card" data-company="IBI Group" data-title="Software Engineer (temp)">
-                    <img src="images/IBILogo.jpg" />
-                    <div>
-                        <h3>IBI Group</h3>
-                        <h4>Junior Developer</h4>
-                    </div>
+                <div class="list-card">
+                    <i class="fas fa-building"></i>
+                    <h3>IBI Group</h3>
+                    <h4>Junior Developer</h4>
                 </div>
-                <div class="workplace-card" data-company="Veeva Systems" data-title="Software Engineer (temp)">
-                    <img src="images/VeevaLogo.jpg" />
-                    <div>
-                        <h3>Veeva Systems</h3>
-                        <h4>Intern Performance Engineer</h4>
-                    </div>
+                <div class="list-card">
+                    <i class="fas fa-prescription-bottle"></i>
+                    <h3>Veeva Systems</h3>
+                    <h4>Intern Performance Engineer</h4>
                 </div>
-                <div class="workplace-card" data-company="Autodesk" data-title="Software Engineer (temp)">
-                    <img src="images/AutodeskLogo.jpg" />
-                    <div>
-                        <h3>Autodesk</h3>
-                        <h4>Software Developer</h4>
-                    </div>
+                <div class="list-card">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h3>Autodesk</h3>
+                    <h4>Software Developer</h4>
                 </div>
-                <div class="workplace-card" data-company="GroupBy" data-title="Software Engineer (temp)">
-                    <img src="images/GroupbyLogo.jpg" />
-                    <div>
-                        <h3>GroupBy</h3>
-                        <h4>Software Engineer</h4>
-                    </div>
+                <div class="list-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>GroupBy</h3>
+                    <h4>Software Engineer</h4>
+                    <h4>Software Developer - Co-op</h4>
                 </div>
             </div>
         </div>
 
         <div id="projects" class="projects">
             <div class="section-header">
-                <h1>Projects  /Interests</h1>
+                <h1>Projects / Interests</h1>
                 <hr class="section-separator">
             </div>
-            <div class="projects-gallery">
-                <div class="projects-gallery-entry">Website</div>
-                <div class="projects-gallery-entry project-watchface">Garmin Watchface</div>
-                <div class="projects-gallery-entry project-osu-keyboard">osu! Keyboard</div>
-                <div class="projects-gallery-entry projects-3d-model">3D Printing</div>
-                <div class="projects-gallery-entry projects-keyboard-entry">Keyboard Build log</div>
-            </div>
 
+            <div class="workplace-list">
+                <div class="list-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Website</h3>
+                    <h4>Right here</h4>
+                </div>
+                <div class="list-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Garmin Watchface</h3>
+                    <h4>Github</h4>
+                </div>
+                <div class="list-card">
+                    <i class="fas fa-music"></i>
+                    <h3>osu! Keyboard</h3>
+                    <h4>Soon™</h4>
+                </div>
+                <div class="list-card">
+                    <i class="fas fa-print"></i>
+                    <h3>3D Printing</h3>
+                    <h4>Soon™</h4>
+                </div>
+                <div class="list-card">
+                    <i class="fas fa-keyboard"></i>
+                    <h3>Keyboards</h3>
+                    <h4>Quefrency Link</h4>
+                </div>
+            </div>
         </div>
 
 
         <!-- Footer -->
-        <div  class="footer">
+        <div class="footer">
             <div id="contact" class="contact">
                 <a target="_blank" href="mailto:info@djlee.xyz" class="contact-link contact-email">
                     <i class="far fa-2x fa-envelope"></i>
@@ -160,7 +164,8 @@
                 <a target="_blank" href="https://www.last.fm/user/TheBroccOLee" class="contact-link contact-lastfm">
                     <i class="fab fa-2x fa-lastfm"></i>
                 </a>
-                <a target="_blank" href="https://www.thingiverse.com/BroccOLee" class="contact-link contact-thingiverse">
+                <a target="_blank" href="https://www.thingiverse.com/BroccOLee"
+                    class="contact-link contact-thingiverse">
                     <i class="fas fa-2x fa-cube"></i>
                 </a>
             </div>
