@@ -49,7 +49,7 @@ h2 {
 }
 
 .navbar li:hover, .navbar li:focus-within{
-    background-color: maroon;
+    background-color: #bb1e10;
 }
 
 .navbar a {
@@ -81,7 +81,7 @@ h2 {
 .name-separator {
     position: relative;
     width: 180px;
-    border: 2px solid maroon;
+    border: 2px solid #bb1e10;
 }
 
 .home-svg {
@@ -114,7 +114,7 @@ h2 {
 
 .home-down-button:focus,.home-down-button:hover {
     transition: 0.5s;
-    color: maroon;
+    color: #bb1e10;
 }
 
 /* Section */
@@ -122,14 +122,14 @@ h2 {
 .section-separator {
     position: relative;
     width: 280px;
-    border: 2px solid maroon;
+    border: 2px solid #bb1e10;
     margin: 30px auto;
 }
 
 .list-card i {
     display: inline-block;
     margin-right: 20px;
-    color: maroon;
+    color: #bb1e10;
 }
 
 .list-card h3 {
