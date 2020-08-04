@@ -40,10 +40,10 @@ function initCanvases() {
 }
 // Helper function to generate color rgb string
 function generateColor(t) {
-    return `rgba(255, 255, 255, ${t})`
+    return `rgba(245, 245, 245, ${t})`
 }
 function generateInvertedColor(t) {
-    return `rgba(0, 0, 0, ${t})`
+    return `rgba(12, 12, 12, ${t})`
 }
 // Helper to create a ripple object
 function initRipple(x, y) {
@@ -53,7 +53,7 @@ function initRipple(x, y) {
         r: 1,
         delta: 1
     }
-}
+}   
 // Create a ripple somewhere in the canvas
 function createRandomRipple() {
     return initRipple(

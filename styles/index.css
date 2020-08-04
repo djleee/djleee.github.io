@@ -139,6 +139,8 @@ h2 {
 
 .list-card h4 {
     position: relative;
+    font-size: 75%;
+    margin-top: 0;
     margin-left: 45px;
 }
 
