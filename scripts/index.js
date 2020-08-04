@@ -162,6 +162,9 @@ function drawMoonFish(xSway, ySway) {
 homeDiv.addEventListener("mousemove", (e) => {
     drawMoonFish(((canvas.width / 2) - e.clientX) * 0.1, ((canvas.height / 2) - e.clientY) * 0.2);
 });
+window.addEventListener("deviceorientation", (event) => {
+    drawMoonFish(event.gamma*1.5, event.beta*1.5);
+}, true);
 
 homeDiv.addEventListener('click', (e) => {
     ripples.unshift(initRipple(e.clientX, e.clientY));
