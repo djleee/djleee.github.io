@@ -96,7 +96,7 @@ h2 {
     font-size: 3em;
     top: 90%;
     left: 50%;
-    margin-left: -1em;
+    transform: translateX(-50%);
 }
 
 .moon {
@@ -232,5 +232,9 @@ h2 {
     .contact {
         width: 100%;
         left: 0;
+    }
+
+    .home-down-button {
+        top: 80%;
     }
 }
